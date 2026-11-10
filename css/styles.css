@@ -1,0 +1,154 @@
+:root {
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+    }
+
+    /* Dynamic Viewport Height Utilities (100dvh dengan fallback 100vh) */
+    .h-dvh {
+      height: 100vh;
+      height: 100dvh;
+    }
+    .min-h-dvh {
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+    .max-h-dvh {
+      max-height: 100vh;
+      max-height: 100dvh;
+    }
+    .w-dvw {
+      width: 100vw;
+      width: 100dvw;
+    }
+
+    /* Safe Area Inset Classes */
+    .safe-pt { padding-top: var(--safe-top); }
+    .safe-pb { padding-bottom: var(--safe-bottom); }
+    .safe-pl { padding-left: var(--safe-left); }
+    .safe-pr { padding-right: var(--safe-right); }
+
+    /* Animasi kustom untuk membuka jendela aplikasi */
+    @keyframes fadeInZoom {
+      0% { opacity: 0; transform: scale(0.97); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .animate-window {
+      animation: fadeInZoom 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.25s ease-out forwards;
+    }
+
+    /* Animasi putar smartphone untuk petunjuk landscape */
+    @keyframes rotatePhone {
+      0%, 20% { transform: rotate(0deg); }
+      45%, 75% { transform: rotate(-90deg); }
+      90%, 100% { transform: rotate(0deg); }
+    }
+    .animate-rotate-phone {
+      animation: rotatePhone 2.5s ease-in-out infinite;
+    }
+    
+    /* Mengatasi tampilan scrollbar agar lebih rapi */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9; 
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1; 
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8; 
+    }
+
+    /* Ribbon scroll touch-friendly */
+    .ribbon-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    .ribbon-scroll::-webkit-scrollbar {
+      height: 4px;
+    }
+    .ribbon-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    
+    /* Ruler text spacing */
+    .ruler-text {
+      letter-spacing: 2.8rem;
+    }
+
+/* ==============================================
+   POWERPOINT EDU PRESENTATION STYLES (16:9 CANVAS)
+   ============================================== */
+.ppt-slide-canvas {
+  width: 100%;
+  max-width: 880px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  transform-origin: top center;
+}
+
+/* Themes */
+.ppt-theme-blue {
+  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #e0f2fe 100%);
+  border-top: 6px solid #0284c7;
+}
+
+.ppt-theme-emerald {
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 50%, #dcfce7 100%);
+  border-top: 6px solid #10b981;
+}
+
+.ppt-theme-sunset {
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 50%, #fef3c7 100%);
+  border-top: 6px solid #f59e0b;
+}
+
+.ppt-theme-slate {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+  border-top: 6px solid #475569;
+}
+
+/* Slide Show Mode Animation */
+@keyframes slideShowFadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-slideshow {
+  animation: slideShowFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
+/* Mobile Touch & Cross-Device Ergonomics */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button, a, input, select, textarea, [role="button"] {
+  touch-action: manipulation;
+}
+
+/* Prevent accidental text selection during window drag / resize on touch screens */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
